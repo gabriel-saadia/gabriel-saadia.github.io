@@ -1,136 +1,227 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Gabriel Saadia</title>
-
-<meta name="description"
-content="Gabriel Saadia's mathematical academic page">
-
-<meta name="author" content="Gabriel Saadia">
-
-<meta name="keywords"
-content="Gabriel Saadia, mathematics, math, researcher, academic, publications, ultracategories, virtual ultracategories, vu-categories">
-
+<meta name="description" content="Gabriel Saadia — PhD student in mathematics at Stockholm University. Categorical logic, ultracategories, topos theory.">
 <style>
-body {
-max-width: 800px;
-margin: 50px auto;
-padding: 0 25px;
-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-line-height: 1.7;
-color: #222;
-background: white;
-}
+  :root {
+    --bg: #fdfdfb;
+    --text: #1d1d1f;
+    --muted: #63636b;
+    --rule: #e3e3de;
+    --accent: #1f4e8c;
+    --photo-bg: #ecebe6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #17181a;
+      --text: #e8e8e6;
+      --muted: #a0a0a8;
+      --rule: #303236;
+      --accent: #8db4ea;
+      --photo-bg: #26282b;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
+    font-size: 17px;
+    line-height: 1.6;
+  }
+  main {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 56px 20px 72px;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
 
-header {
-display: flex;
-justify-content: center;
-align-items: center;
-gap: 28px;
-margin-bottom: 50px;
-}
+  /* Header */
+  header {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+  .photo {
+    flex: 0 0 150px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--photo-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .photo img + span { display: none; } /* hide the placeholder text once a photo is loaded */
+  h1 {
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 1.2;
+    margin: 0 0 6px;
+  }
+  .role { margin: 0 0 10px; color: var(--muted); }
+  .contact { margin: 0; font-size: 15px; }
+  .contact span.sep { color: var(--rule); margin: 0 6px; }
 
-header img {
-width: 250px;
-height: 200px;
-object-fit: cover;
-}
+  /* Sections */
+  h2 {
+    font-size: 21px;
+    font-weight: 600;
+    margin: 44px 0 14px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--rule);
+  }
+  h3 {
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    margin: 26px 0 8px;
+  }
+  p { margin: 0 0 14px; }
 
-.header-text {
-text-align: center;
-}
+  /* Entries */
+  ul.entries { list-style: none; margin: 0; padding: 0; }
+  ul.entries li {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 9px 0;
+  }
+  .what { min-width: 0; }
+  .title { font-weight: 600; }
+  .links { font-size: 14px; margin-left: 4px; white-space: nowrap; }
+  .links a { margin-left: 6px; }
+  .meta { display: block; color: var(--muted); font-size: 15px; }
+  .when {
+    flex: 0 0 auto;
+    color: var(--muted);
+    font-size: 15px;
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
 
-h1 {
-margin: 0;
-font-size: 2.8rem;
-font-weight: 500;
-}
+  footer {
+    margin-top: 56px;
+    padding-top: 14px;
+    border-top: 1px solid var(--rule);
+    color: var(--muted);
+    font-size: 14px;
+  }
 
-.subtitle {
-margin-top: 8px;
-color: #666;
-font-size: 1.1rem;
-}
-
-section {
-margin-top: 40px;
-}
-
-h2 {
-border-bottom: 1px solid #ddd;
-padding-bottom: 6px;
-font-weight: 500;
-}
-
-a {
-color: #0055aa;
-text-decoration: none;
-}
-
-a:hover {
-text-decoration: underline;
-}
+  @media (max-width: 560px) {
+    main { padding: 32px 16px 56px; }
+    header { flex-direction: column; align-items: flex-start; gap: 18px; }
+    .photo { flex-basis: 120px; width: 120px; height: 120px; }
+    h1 { font-size: 28px; }
+    ul.entries li { flex-direction: column; gap: 0; }
+    .links { white-space: normal; }
+  }
 </style>
 </head>
-
 <body>
+<main>
 
-<header>
-<img src="4.png" alt="Gabriel Saadia">
+  <header>
+    <!-- Put your picture next to this file as photo.jpg (square works best).
+         If the file is missing, a grey placeholder is shown instead. -->
+    <div class="photo">
+      <img src="1.jpeg" alt="Gabriel Saadia" onerror="this.remove()">
+      <span aria-hidden="true">Photo</span>
+    </div>
+    <div>
+      <h1>Gabriel Saadia</h1>
+      <p class="role">PhD student in mathematics, Stockholm University</p>
+      <p class="contact">
+        <a href="mailto:gabriel.saadia@math.su.se">gabriel.saadia@math.su.se</a><span class="sep">|</span><a href="mailto:gabrielsaadia@gmail.com">gabrielsaadia@gmail.com</a><span class="sep">
+      </p>
+    </div>
+  </header>
 
-<div class="header-text">
-<h1>Gabriel Saadia</h1>
-<p class="subtitle">PhD student at Stockholm University</p>
-</div>
-</header>
+  <section>
+    <p>
+      I work on ultracategories and their recent generalisation into virtual ultracategories.
+    </p>
+  </section>
 
-<section>
-<h2>Research</h2>
+  <section>
+    <h2>Papers and preprints</h2>
+    <ul class="entries">
+      <li>
+        <div class="what">
+          <span class="title">Categorified convergence</span>
+          <span class="meta">with <a href="https://utarantino.github.io">Umberto Tarantino</a> · in preparation · <a href="https://gabriel-saadia.github.io/slides-filters.pdf">slides</a></span>
+        </div>
+      </li>
+      <li>
+        <div class="what">
+          <span class="title">Geometric morphisms of virtual ultracategories</span>
+          <span class="meta">with Errol Yuksel · <a href="https://arxiv.org/abs/2609.31445">arXiv</a></span>
+        </div>
+        <span class="when">2026</span>
+      </li>
+      <li>
+        <div class="what">
+          <span class="title">Extending conceptual completeness via virtual ultracategories</span>
+          <span class="meta">to appear in the <em>Journal of Symbolic Logic</em> · <a href="https://arxiv.org/abs/2506.23935">arXiv</a></span>
+        </div>
+        <span class="when">2025</span>
+      </li>
+      <li>
+        <div class="what">
+          <span class="title">Rigidification of cubical quasi-categories</span>
+          <span class="meta">with <a href="https://www.irif.fr/~curien/">Pierre-Louis Curien</a> and <a href="https://webusers.imj-prg.fr/~muriel.livernet/">Muriel Livernet</a> · published in <a href="https://msp.org/agt/2024/24-5/agt-v24-n5-p15-s.pdf"><em>Algebraic &amp; Geometric Topology</em></a> 24(5)</span>
+        </div>
+        <span class="when">2024</span>
+      </li>
+    </ul>
+  </section>
 
-<p>I work on ultracategories and their recent generalisation into virtual ultracategories.
-</p>
-</section>
+  <section>
+    <h2>Slides</h2>
+    <ul class="entries">
+      <li>
+        <div class="what">
+          <span class="title">VF vs VU: towards a filter version of virtual ultracategories</span>
+          <span class="meta"><a href="https://www.irif.fr/rencontres/pps2026/ultracategories-workshop">Ultracategories and Stone Duality Workshop</a>, IRIF, Paris · <a href="https://gabriel-saadia.github.io/slides-filters.pdf">slides</a></span>
+        </div>
+        <span class="when">Jun 2026</span>
+      </li>
 
-<section>
-<h2>Works</h2>
-
-<ul>
-<li>Geometric morphisms of virtual ultractegories, j.w.w Errol Yuksel (to appear)</li>
-</ul>
-
-<ul>
-<li><a href="https://arxiv.org/abs/2506.23935" target="_blank">Extending conceptual completeness via virtual ultracategories</a> (2025)</li>
-</ul>
-
-
-<ul>
-<li><a href="https://arxiv.org/abs/2211.13679" target="_blank">Rigidification of cubical quasi-categories</a> j.w.w Pierre-Louis Curien & Muriel Livernet (2022)</li>
-</ul>
-</section>
-
-
-<section>
-<h2>Sildes</h2>
-<ul>
-<li><a href="slides-vuretract.pdf" target="_blank">Soberness as idempotent-completeness</a> (CT2026)</li>
-</ul>
-<ul>
-<li><a href="slides-filters.pdf" target="_blank">Towards a filter version of virtual ultracategories</a> (<a href="https://www.irif.fr/rencontres/pps2026/ultracategories-workshop" target="_blank">Ultracategories and Stone Duality Workshop</a>)</li>
-</ul>
-<ul>
-<li><a href="slides-scc.pdf" target="_blank">Extending strong conceptual completeness via virtual ultracategories</a> (CT 2025)</li>
-</ul>
-</section>
-
-<section>
-<h2>Contact</h2>
-
-<p>
-gabrielsaadia@gmail.com
-</p>
-</section>
-
+      <li>
+        <div class="what">
+          <span class="title">Soberness as idempotent-completeness</span>
+          <span class="meta"><a href="https://ct2026.com">CT2026</a>, International Category Theory Conference, Baltimore (online)  <a href="https://gabriel-saadia.github.io/slides-vuretract.pdf">slides</a></span>
+        </div>
+        <span class="when">Jul 2026</span>
+      </li>
+      <li>
+        <div class="what">
+          <span class="title">Extending strong conceptual completeness through virtual ultracategories</span>
+          <span class="meta"><a href="https://archive.math.muni.cz/conference/ct2025/index.html">CT2025</a>, International Category Theory Conference, Brno, · <a href="https://gabriel-saadia.github.io/slides-scc.pdf">slides</a></span>
+        </div>
+        <span class="when">Jul 2025</span>
+      </li>
+      <li>
+        <div class="what">
+          <span class="title">Can we escape strictness? On the coherence problem in HoTT</span>
+          <span class="meta"><a href="https://sites.google.com/view/phd-math-fest-2024/speakers">Stockholm PhD Math Fest 2024</a> · <a href="https://drive.google.com/file/d/10q6v__Lrfk7Vs9UZaAgg1I7to3sOaUsp/view">slides</a></span>
+        </div>
+        <span class="when">Jun 2024</span>
+      </li>
+  </section>
+</main>
 </body>
 </html>
